@@ -1,5 +1,7 @@
 The MIT License (MIT)
 
+luajit-tcc - Tiny C Compiler binding for LuaJIT
+
 Copyright (c) 2015 Playermet
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
