@@ -13,7 +13,7 @@ const.output_dll        = 2
 const.output_obj        = 3
 const.output_preprocess = 4
 
-const.relocate_auto = ffi.cast('void*',1)
+const.relocate_auto = ffi.cast('void*', 1)
 
 
 local function get_const(value)
@@ -125,7 +125,13 @@ function mod.output_file(s, filename)
   return bind.tcc_output_file(s, filename)
 end
 
-function mod.run(s, argc, argv)
+function mod.run(s, t)
+  local argc = #t
+  local argv = ffi.new('char*[?]', argc)
+  for i = 1, argc do
+    local str = tostring(t[i])
+    argv[i - 1] = ffi.new('char[?]', #str + 1, str)
+  end
   return bind.tcc_run(s, argc, argv)
 end
 
