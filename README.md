@@ -37,3 +37,9 @@
   state:delete()
 
 ```
+
+# Differences from the C API
+Binding is so close to the original API as possible, but some things still differ.
+ 1. Names lost 'tcc_' prefix as not needed.
+ 2. 'tcc.add_symbol' and 'tcc.get_symbol' have optional argument for in-place cast.
+ 3. 'tcc.run' accept table instead of argc-argv pair.
