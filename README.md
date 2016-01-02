@@ -13,6 +13,17 @@
  state:set_output_type('output_dll')
 ```
 
+# Start using
+Before calling tcc functions you need to initialize binding with library name or path.
+Luajit uses dynamic library loading API directly, so behaviour may be different on each OS.
+Filename and location of tcc library may also vary.
+Several examples:
+```lua
+-- Windows
+local tcc = require 'tcc' ('libtcc')
+local tcc = require 'tcc' ('../some/path/libtcc.dll')
+```
+
 # Example code
 ```lua
   local tcc = require 'tcc' ('libtcc')
